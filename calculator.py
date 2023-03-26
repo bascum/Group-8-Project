@@ -41,7 +41,7 @@ class Calculator:
                     self.numbers[idx] = self.mult(self.numbers[idx], self.numbers[idx + 1])
                     '''
                         The number at the idex of the operator gets overwritten above while below the number that is one above gets
-                        delted as well as the operator
+                        deleted as well as the operator
                     '''
                     
                     del self.numbers[idx + 1]
