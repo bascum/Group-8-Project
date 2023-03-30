@@ -6,6 +6,7 @@ class Calculator:
         self.numbers = [] # This list will contain only the numbers as INT
         self.history = {} # NOT IMPLIMENTED but will be a dict with the wholeOperation string and the answer int
         
+        
         self.formatOperation() # Takes in the inout sting and removes the spaces to make each num or operator its own item then places into proper list
         self.calc() # Iterates semi-recursivly through the num and op lists to perform the operations with PEMDAS in mind
         print(self.numbers) # Prints last item in num list which will be the answer
@@ -50,7 +51,7 @@ class Calculator:
                     self.numbers[idx] = self.div(self.numbers[idx], self.numbers[idx + 1])
                     del self.numbers[idx + 1]
                     del self.operations[idx]
-            elif (i == "+" or i == "-") and counter > 0: # Counter so addition and subtraction get skipped the first time around
+            elif (i == "+" or i == "-") and ("*" not in self.operations) and ("/" not in self.operations): # Counter so addition and subtraction get skipped the first time around
                 if i == "+":
                     self.numbers[idx] = self.add(self.numbers[idx], self.numbers[idx + 1])
                     del self.numbers[idx + 1]
