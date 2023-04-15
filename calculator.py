@@ -1,16 +1,19 @@
 class Calculator:
     def __init__(self):
-        self.wholeOperation = input("FORMAT: num (space) operator (space) num (space)...") #This will be an input parameter once we set up a UI with flask
+        self.wholeOperation = []
         self.WholeOperationArr = [] # list for the formatted list with spaces removed
         self.operations = [] # This list will contain only the operators as single Char strings
         self.numbers = [] # This list will contain only the numbers as INT
         self.history = {} # NOT IMPLIMENTED but will be a dict with the wholeOperation string and the answer int
         
         
+    def calculate(self, operation):
+        self.wholeOperation = operation
         self.formatOperation() # Takes in the inout sting and removes the spaces to make each num or operator its own item then places into proper list
         self.calc() # Iterates semi-recursivly through the num and op lists to perform the operations with PEMDAS in mind
-        print(self.numbers) # Prints last item in num list which will be the answer
-        
+        self.history[self.wholeOperation] = self.numbers
+        return self.numbers # returns last item in num list which will be the answer
+    
     def formatOperation(self):
         
         self.WholeOperationArr = self.wholeOperation.split() # Split the string into a usable listr that can then be split further
