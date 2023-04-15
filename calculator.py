@@ -12,7 +12,7 @@ class Calculator:
         self.formatOperation() # Takes in the inout sting and removes the spaces to make each num or operator its own item then places into proper list
         self.calc() # Iterates semi-recursivly through the num and op lists to perform the operations with PEMDAS in mind
         self.history[self.wholeOperation] = self.numbers
-        return self.numbers # returns last item in num list which will be the answer
+        return self.numbers[0] # returns last item in num list which will be the answer
     
     def formatOperation(self):
         
@@ -27,7 +27,7 @@ class Calculator:
                 so when we iterate through the list we can append the even indexes to num, and the odd indexes to operators
             '''
             if idx % 2 == 0 or idx == 0:
-                self.numbers.append(int(i))
+                self.numbers.append(float(i))
             else:
                 self.operations.append(i)
         
@@ -36,7 +36,11 @@ class Calculator:
             will iterrate through the list of operators and do multiply and divide the first time
         '''
         for idx, i in enumerate(self.operations):
-            if i == "*" or i == "x" or i == "X" or i == "/":
+            if i == "%":
+                self.numbers[idx] = self.mod(self.numbers[idx], self.numbers[idx + 1])
+                del self.numbers[idx + 1]
+                del self.operations[idx]
+            elif i == "*" or i == "x" or i == "X" or i == "/":
                 if i == "*" or i == "x" or i == "X":
                     '''
                         When if finds an operator it takes the numbers that are at that index and the number one above that index
@@ -80,3 +84,5 @@ class Calculator:
     def div(self, num1, num2):
         return num1 / num2
     
+    def mod(self, num1, num2):
+        return num1 % num2
