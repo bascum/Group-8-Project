@@ -31,24 +31,8 @@ def homePage():
             wholeOp = ""
             typed = ""
             count = 0
-         elif button == "1":
-            typed = typed + "1"
-         elif button == "2":
-            typed = typed + "2"
-         elif button == "3":
-            typed = typed + "3"
-         elif button == "4":
-            typed = typed + "4"
-         elif button == "5":
-            typed = typed + "5"
-         elif button == "6":
-            typed = typed + "6"
-         elif button == "7":
-            typed = typed + "7"
-         elif button == "8":
-            typed = typed + "8"
-         elif button == "9":
-            typed = typed + "9"
+         if button in "123456789":
+            typed += button
          elif button == "0":
             if typed == "":
                pass
