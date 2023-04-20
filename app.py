@@ -7,6 +7,7 @@ app = Flask(__name__)
 app.secret_key = "my_secretKey"
 calculator = Calculator()
 
+#testing commit
 
 typed = ""
 wholeOp = ""
