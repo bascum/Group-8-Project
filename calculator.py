@@ -64,7 +64,8 @@ class Calculator:
                     del self.numbers[idx + 1]
                     del self.operations[idx]
                 elif i == "-":
-                    self.numbers[idx] = self.mult(self.numbers[idx], self.numbers[idx + 1])
+                    ''' I think the line below has an error in that it should be self.subt not self.mult'''
+                    self.numbers[idx] = self.sub(self.numbers[idx], self.numbers[idx + 1])
                     del self.numbers[idx + 1]
                     del self.operations[idx]
                     
