@@ -12,7 +12,7 @@ class Calculator:
         self.wholeOperation = operation
         self.formatOperation() # Takes in the inout sting and removes the spaces to make each num or operator its own item then places into proper list
         self.calc() # Iterates semi-recursivly through the num and op lists to perform the operations with PEMDAS in mind
-        self.history[self.wholeOperation] = self.numbers
+        self.history[self.wholeOperation] = str(self.numbers[0])
         return self.numbers[0] # returns last item in num list which will be the answer
     
     def formatOperation(self):
