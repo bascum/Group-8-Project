@@ -8,7 +8,7 @@ class Calculator:
         
         
     def calculate(self, operation):
-        self.number.clear()
+        self.numbers.clear()
         self.wholeOperation = operation
         self.formatOperation() # Takes in the inout sting and removes the spaces to make each num or operator its own item then places into proper list
         self.calc() # Iterates semi-recursivly through the num and op lists to perform the operations with PEMDAS in mind
