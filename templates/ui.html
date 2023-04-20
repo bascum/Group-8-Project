@@ -6,6 +6,14 @@
 
     <!-- Calculator Display Screen -->
     <div class="calc-screen">
+        <!-- Calc history is the three faded numbers above the actual typed input -->
+        <div id="calc-history">
+            {% if wholeOp == "": %}
+                <div>0</div>
+        {% else: %}
+            {{ wholeOp }}
+        {% endif %}
+        </div>
         <div id="calc-operation">
             {% if wholeOp == "": %}
                 <div>0</div>

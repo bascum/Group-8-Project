@@ -67,7 +67,7 @@ def homePage():
                if modFlag == True:
                   wholeOp = wholeOp + typed
                   wholeOp = str(calculator.calculate(wholeOp + typed))
-               wholeOp = wholeOp + typed + " x "
+               wholeOp = wholeOp + typed + " * "
                typed = ""
          elif button == "sub":
             if typed == "":
