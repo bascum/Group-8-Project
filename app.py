@@ -31,7 +31,7 @@ def homePage():
             wholeOp = ""
             typed = ""
             count = 0
-         if button in "123456789":
+         elif button in "123456789":
             typed += button
          elif button == "0":
             if typed == "":
