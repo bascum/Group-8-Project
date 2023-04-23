@@ -1,6 +1,6 @@
 class Calculator:
     def __init__(self):
-        self.wholeOperation = []
+        self.wholeOperation = ''
         self.WholeOperationArr = [] # list for the formatted list with spaces removed
         self.operations = [] # This list will contain only the operators as single Char strings
         self.numbers = [] # This list will contain only the numbers as INT
@@ -13,9 +13,7 @@ class Calculator:
         self.wholeOperation = operation
         self.formatOperation() # Takes in the inout sting and removes the spaces to make each num or operator its own item then places into proper list
         self.calc() # Iterates semi-recursivly through the num and op lists to perform the operations with PEMDAS in mind
-        #self.wholeOpHistory.append(operation)
-        #self.answerHistory.append()
-        #self.addToHistoryDict(self.wholeOperation, str(self.numbers[0]))
+        self.manageHistory()
         return self.numbers[0] # returns last item in num list which will be the answer
     
     def formatOperation(self):
@@ -76,11 +74,18 @@ class Calculator:
             counter += 1
             self.calc(counter)
 
-    # def addToWholeOpHistoryList(self, operation):
-    #     self.wholeOpHistory.append(operation)
+    def manageHistory(self):
+        temp = self.wholeOperation + " = " + str(self.numbers[0])
+        if len(self.history) >= 3:
+            del self.history[0]
+        self.history.append(temp)
+        
+    def getHist(self):
+        if len(self.history) == 0:
+            return ""
+        else:
+            return self.history
 
-    # def addToAnswerHistoryList(self, answer):
-    #     self.answerHistory.append()
     def add(self, num1, num2):
         return num1 + num2
     

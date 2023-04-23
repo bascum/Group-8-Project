@@ -95,25 +95,16 @@ def homePage():
                wholeOp = wholeOp + typed + " + "
                typed = ""
          elif button == "equ":
-            if typed == "":
+            if typed == "" and wholeOp == "":
                pass
             elif wholeOp == "":
                pass
             else:
-               
-               oldestEquation = str(f"{wholeOp + typed} = {calculator.calculate(wholeOp + typed)}")
-               middleEquation = str(f"{wholeOp + typed} = {calculator.calculate(wholeOp + typed)}")
-               latestEquation = str(f"{wholeOp + typed} = {calculator.calculate(wholeOp + typed)}")
-               calculator.answerHistory.append(oldestEquation)
-               calculator.answerHistory.append(middleEquation)
-               calculator.answerHistory.append(latestEquation)
-               oldest = calculator.answerHistory[2]
-               middle = calculator.answerHistory[1]
-               latest = calculator.answerHistory[0]
-               wholeOp = str(calculator.calculate(wholeOp + typed))
+               calculator.calculate(wholeOp + typed)
+               wholeOp = ""
                typed = ""
                
-   return render_template('ui.html', wholeOp=wholeOp, typed=typed, latest=latest, middle=middle, oldest=oldest)
+   return render_template('ui.html', wholeOp=wholeOp, typed=typed, history=calculator.getHist())
 
 
 if __name__ == "__main__":
