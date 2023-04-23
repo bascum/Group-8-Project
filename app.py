@@ -12,6 +12,9 @@ calculator = Calculator()
 typed = ""
 wholeOp = ""
 modFlag = False
+latest = ""
+middle = ""
+oldest = ""
 
 if modFlag == True:
    wholeOp = wholeOp + typed
@@ -20,9 +23,12 @@ if modFlag == True:
 @app.route("/", methods=['GET', 'POST'])
 def homePage():
    
-   global typed
-   global wholeOp
-   global modFlag
+   global typed #double var
+   global wholeOp #double var
+   global modFlag #boolean 
+   global latest
+   global middle
+   global oldest
    
    if request.method == "POST":
       # Get the button that was clicked
@@ -32,6 +38,8 @@ def homePage():
             wholeOp = ""
             typed = ""
             count = 0
+         elif button == "CH":
+            calculator.clearHist()
          elif button in "123456789":
             typed += button
          elif button == "0":
@@ -44,14 +52,6 @@ def homePage():
                del typed[0]
             else:
                typed = "-" + typed
-         elif button == "mod":
-            if wholeOp != "":
-               wholeOp = str(calculator.calculate(wholeOp + typed))
-               wholeOp = wholeOp + " % "
-               modFlag = True
-            else:
-               wholeOp = typed + " % "
-            typed = ""
          elif button == "div":
             if typed == "":
                pass
@@ -89,15 +89,16 @@ def homePage():
                wholeOp = wholeOp + typed + " + "
                typed = ""
          elif button == "equ":
-            if typed == "":
+            if typed == "" and wholeOp == "":
                pass
             elif wholeOp == "":
                pass
             else:
-               wholeOp = str(calculator.calculate(wholeOp + typed))
+               calculator.calculate(wholeOp + typed)
+               wholeOp = ""
                typed = ""
                
-   return render_template('ui.html', wholeOp=wholeOp, typed=typed)
+   return render_template('ui.html', wholeOp=wholeOp, typed=typed, history=calculator.getHist())
 
 
 if __name__ == "__main__":

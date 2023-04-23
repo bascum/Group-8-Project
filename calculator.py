@@ -1,18 +1,19 @@
 class Calculator:
     def __init__(self):
-        self.wholeOperation = []
+        self.wholeOperation = ''
         self.WholeOperationArr = [] # list for the formatted list with spaces removed
         self.operations = [] # This list will contain only the operators as single Char strings
         self.numbers = [] # This list will contain only the numbers as INT
-        self.history = {} # NOT IMPLIMENTED but will be a dict with the wholeOperation string and the answer int
-        
+        self.wholeOpHistory = [] # NOT IMPLIMENTED but will be a dict with the wholeOperation string and the answer int. NoTE: I tried implementing as a dictionary but when it came to passing it to the html file it seems that it struggles to recognize 
+        self.answerHistory = []
+        self.history = ["-", "-", "-"]
         
     def calculate(self, operation):
         self.numbers.clear()
         self.wholeOperation = operation
         self.formatOperation() # Takes in the inout sting and removes the spaces to make each num or operator its own item then places into proper list
         self.calc() # Iterates semi-recursivly through the num and op lists to perform the operations with PEMDAS in mind
-        self.history[self.wholeOperation] = str(self.numbers[0])
+        self.manageHistory()
         return self.numbers[0] # returns last item in num list which will be the answer
     
     def formatOperation(self):
@@ -65,7 +66,6 @@ class Calculator:
                     del self.numbers[idx + 1]
                     del self.operations[idx]
                 elif i == "-":
-                    ''' I think the line below has an error in that it should be self.subt not self.mult'''
                     self.numbers[idx] = self.sub(self.numbers[idx], self.numbers[idx + 1])
                     del self.numbers[idx + 1]
                     del self.operations[idx]
@@ -73,6 +73,18 @@ class Calculator:
         if len(self.numbers) > 1: # If there are still numbers left the function has to run again but all mult and div should be done so counter ++
             counter += 1
             self.calc(counter)
+
+    def manageHistory(self):
+        temp = self.wholeOperation + " = " + str(self.numbers[0])
+        if len(self.history) >= 3:
+            del self.history[0]
+        self.history.append(temp)
+        
+    def getHist(self):
+        return self.history
+        
+    def clearHist(self):
+        self.history.clear()
 
     def add(self, num1, num2):
         return num1 + num2
