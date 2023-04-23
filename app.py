@@ -11,24 +11,12 @@ calculator = Calculator()
 
 typed = ""
 wholeOp = ""
-modFlag = False
-latest = ""
-middle = ""
-oldest = ""
-
-if modFlag == True:
-   wholeOp = wholeOp + typed
-   wholeOp = calculator.calculate(wholeOp)
 
 @app.route("/", methods=['GET', 'POST'])
 def homePage():
    
    global typed #double var
    global wholeOp #double var
-   global modFlag #boolean 
-   global latest
-   global middle
-   global oldest
    
    if request.method == "POST":
       # Get the button that was clicked
@@ -56,36 +44,24 @@ def homePage():
             if typed == "":
                pass
             else:
-               if modFlag == True:
-                  wholeOp = wholeOp + typed
-                  wholeOp = str(calculator.calculate(wholeOp + typed))
                wholeOp = wholeOp + typed + " / "
                typed = ""
          elif button == "mul":
             if typed == "":
                pass
             else:
-               if modFlag == True:
-                  wholeOp = wholeOp + typed
-                  wholeOp = str(calculator.calculate(wholeOp + typed))
                wholeOp = wholeOp + typed + " * "
                typed = ""
          elif button == "sub":
             if typed == "":
                pass
             else:
-               if modFlag == True:
-                  wholeOp = wholeOp + typed
-                  wholeOp = str(calculator.calculate(wholeOp + typed))
                wholeOp = wholeOp + typed + " - "
                typed = ""
          elif button == "add":
             if typed == "":
                pass
             else:
-               if modFlag == True:
-                  wholeOp = wholeOp + typed
-                  wholeOp = str(calculator.calculate(wholeOp + typed))
                wholeOp = wholeOp + typed + " + "
                typed = ""
          elif button == "equ":
