@@ -6,7 +6,7 @@ class Calculator:
         self.numbers = [] # This list will contain only the numbers as INT
         self.wholeOpHistory = [] # NOT IMPLIMENTED but will be a dict with the wholeOperation string and the answer int. NoTE: I tried implementing as a dictionary but when it came to passing it to the html file it seems that it struggles to recognize 
         self.answerHistory = []
-        self.history = []
+        self.history = ["-", "-", "-"]
         
     def calculate(self, operation):
         self.numbers.clear()
@@ -81,10 +81,7 @@ class Calculator:
         self.history.append(temp)
         
     def getHist(self):
-        if len(self.history) == 0:
-            return ""
-        else:
-            return self.history
+        return self.history
         
     def clearHist(self):
         self.history.clear()

@@ -9,7 +9,9 @@
 /*Calculator Display Screen*/
 .calc-screen {
     padding: 1rem;
+    min-height: 172px;
 }
+
 #calc-history {
     font-size: 1.3rem;
     text-align: right;

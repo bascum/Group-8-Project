@@ -10,7 +10,9 @@
 
         <div id="calc-history">
         {% if history == "": %}
-            <div></div>
+            <br>
+            <br>
+            <br>
         {% else: %}
             {% for lines in history %}
                 <div>{{ lines }}</div>
@@ -38,7 +40,7 @@
     <form method="post">
         <div class="calc-button-row">
             <button type="submit" name="button" class="ac" value="AC">AC</button>
-            <button type="submit" name="button" class="opt" value="CH">CH</button>
+            <button type="submit" name="button" class="ac" value="CH">CH</button>
             <button type="submit" name="button" class="opt" value="negate">&#43;&#47;&#8722;</button>
             <button type="submit" name="button" class="opt" value="div">&#247;</button>
             <button type="submit" name="button" value="7">7</button>
