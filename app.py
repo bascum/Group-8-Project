@@ -38,7 +38,9 @@ def homePage():
             wholeOp = ""
             typed = ""
             count = 0
-         if button in "123456789":
+         elif button == "CH":
+            calculator.clearHist()
+         elif button in "123456789":
             typed += button
          elif button == "0":
             if typed == "":
@@ -50,14 +52,6 @@ def homePage():
                del typed[0]
             else:
                typed = "-" + typed
-         elif button == "mod":
-            if wholeOp != "":
-               wholeOp = str(calculator.calculate(wholeOp + typed))
-               wholeOp = wholeOp + " % "
-               modFlag = True
-            else:
-               wholeOp = typed + " % "
-            typed = ""
          elif button == "div":
             if typed == "":
                pass
