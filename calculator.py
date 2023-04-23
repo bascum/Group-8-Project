@@ -85,6 +85,9 @@ class Calculator:
             return ""
         else:
             return self.history
+        
+    def clearHist(self):
+        self.history.clear()
 
     def add(self, num1, num2):
         return num1 + num2
