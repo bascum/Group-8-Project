@@ -7,13 +7,31 @@
     <!-- Calculator Display Screen -->
     <div class="calc-screen">
         <!-- Calc history is the three faded numbers above the actual typed input -->
+        
         <div id="calc-history">
-            {% if wholeOp == "": %}
-                <div>0</div>
+            {% if hist == "": %}
+                <div></div>
         {% else: %}
-            {{ wholeOp }}
+            {{ hist }}
         {% endif %}
         </div>
+
+        <div id="calc-history">
+            {% if hist == "": %}
+                <div></div>
+        {% else: %}
+            {{ hist }}
+        {% endif %}
+        </div>
+
+        <div id="calc-history">
+            {% if latest == "": %}
+                <div></div>
+        {% else: %}
+            {{ latest }}
+        {% endif %}
+        </div>
+
         <div id="calc-operation">
             {% if wholeOp == "": %}
                 <div>0</div>

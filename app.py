@@ -12,6 +12,9 @@ calculator = Calculator()
 typed = ""
 wholeOp = ""
 modFlag = False
+latest = ""
+middle = ""
+oldest = ""
 
 if modFlag == True:
    wholeOp = wholeOp + typed
@@ -20,9 +23,12 @@ if modFlag == True:
 @app.route("/", methods=['GET', 'POST'])
 def homePage():
    
-   global typed
-   global wholeOp
-   global modFlag
+   global typed #double var
+   global wholeOp #double var
+   global modFlag #boolean 
+   global latest
+   global middle
+   global oldest
    
    if request.method == "POST":
       # Get the button that was clicked
@@ -94,10 +100,20 @@ def homePage():
             elif wholeOp == "":
                pass
             else:
+               
+               oldestEquation = str(f"{wholeOp + typed} = {calculator.calculate(wholeOp + typed)}")
+               middleEquation = str(f"{wholeOp + typed} = {calculator.calculate(wholeOp + typed)}")
+               latestEquation = str(f"{wholeOp + typed} = {calculator.calculate(wholeOp + typed)}")
+               calculator.answerHistory.append(oldestEquation)
+               calculator.answerHistory.append(middleEquation)
+               calculator.answerHistory.append(latestEquation)
+               oldest = calculator.answerHistory[2]
+               middle = calculator.answerHistory[1]
+               latest = calculator.answerHistory[0]
                wholeOp = str(calculator.calculate(wholeOp + typed))
                typed = ""
                
-   return render_template('ui.html', wholeOp=wholeOp, typed=typed)
+   return render_template('ui.html', wholeOp=wholeOp, typed=typed, latest=latest, middle=middle, oldest=oldest)
 
 
 if __name__ == "__main__":
