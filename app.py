@@ -25,44 +25,57 @@ def homePage():
          if button == "AC":
             wholeOp = ""
             typed = ""
+            
          elif button == "CH":
             calculator.clearHist()
+            
          elif button in "123456789":
             typed += button
+            
+         elif button == ".":
+            if typed in "123456789":
+               typed += "."
+               
          elif button == "0":
             if typed == "":
                pass
             else:
                typed = typed + "0"
+               
          elif button == "negate":
             if typed[0] == "-":
                del typed[0]
             else:
                typed = "-" + typed
+               
          elif button == "div":
             if typed == "":
                pass
             else:
                wholeOp = wholeOp + typed + " / "
                typed = ""
+               
          elif button == "mul":
             if typed == "":
                pass
             else:
                wholeOp = wholeOp + typed + " * "
                typed = ""
+               
          elif button == "sub":
             if typed == "":
                pass
             else:
                wholeOp = wholeOp + typed + " - "
                typed = ""
+               
          elif button == "add":
             if typed == "":
                pass
             else:
                wholeOp = wholeOp + typed + " + "
                typed = ""
+               
          elif button == "equ":
             if typed == "" and wholeOp == "":
                pass
