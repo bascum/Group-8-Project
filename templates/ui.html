@@ -9,20 +9,14 @@
         <!-- Calc history is the three faded numbers above the actual typed input -->
 
         <div id="calc-history">
-        {% if history == "": %}
-            <br>
-            <br>
-            <br>
-        {% else: %}
             {% for lines in history %}
                 <div>{{ lines }}</div>
             {% endfor %}
-        {% endif %}
         </div>
 
         <div id="calc-operation">
             {% if wholeOp == "": %}
-                <div>0</div>
+                <div>-</div>
         {% else: %}
             {{ wholeOp }}
         {% endif %}
