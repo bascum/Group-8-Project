@@ -31,7 +31,7 @@ class Calculator:
             else:
                 self.operations.append(i)
         
-    def calc(self, counter = 0):
+    def calc(self):
         '''
             will iterrate through the list of operators and do multiply and divide the first time
         '''
@@ -69,7 +69,6 @@ class Calculator:
                     del self.operations[idx]
                     
         if len(self.numbers) > 1: # If there are still numbers left the function has to run again but all mult and div should be done so counter ++
-            counter += 1
             self.calc(counter)
 
     def manageHistory(self):
@@ -83,6 +82,8 @@ class Calculator:
         
     def clearHist(self):
         self.history.clear()
+        for i in range(3):
+            self.history.append("-")
 
     def add(self, num1, num2):
         return num1 + num2
