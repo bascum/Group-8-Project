@@ -76,6 +76,12 @@ def homePage():
                wholeOp = wholeOp + typed + " + "
                typed = ""
                
+         elif button == "back":
+            if typed == "":
+               pass
+            else:
+               typed = typed[:-1]
+               
          elif button == "equ":
             if typed == "" and wholeOp == "":
                pass
