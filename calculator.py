@@ -36,12 +36,8 @@ class Calculator:
             will iterrate through the list of operators and do multiply and divide the first time
         '''
         for idx, i in enumerate(self.operations):
-            if i == "%":
-                self.numbers[idx] = self.mod(self.numbers[idx], self.numbers[idx + 1])
-                del self.numbers[idx + 1]
-                del self.operations[idx]
-            elif i == "*" or i == "x" or i == "X" or i == "/":
-                if i == "*" or i == "x" or i == "X":
+            if i == "*" or i == "/":
+                if i == "*":
                     '''
                         When if finds an operator it takes the numbers that are at that index and the number one above that index
                         and plugs them into the right operation
