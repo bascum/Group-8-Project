@@ -69,7 +69,7 @@ class Calculator:
                     del self.operations[idx]
                     
         if len(self.numbers) > 1: # If there are still numbers left the function has to run again but all mult and div should be done so counter ++
-            self.calc(counter)
+            self.calc()
 
     def manageHistory(self):
         temp = self.wholeOperation + " = " + str(self.numbers[0])
