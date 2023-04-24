@@ -25,7 +25,6 @@ def homePage():
          if button == "AC":
             wholeOp = ""
             typed = ""
-            count = 0
          elif button == "CH":
             calculator.clearHist()
          elif button in "123456789":

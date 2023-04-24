@@ -4,8 +4,6 @@ class Calculator:
         self.WholeOperationArr = [] # list for the formatted list with spaces removed
         self.operations = [] # This list will contain only the operators as single Char strings
         self.numbers = [] # This list will contain only the numbers as INT
-        self.wholeOpHistory = [] # NOT IMPLIMENTED but will be a dict with the wholeOperation string and the answer int. NoTE: I tried implementing as a dictionary but when it came to passing it to the html file it seems that it struggles to recognize 
-        self.answerHistory = []
         self.history = ["-", "-", "-"]
         
     def calculate(self, operation):
@@ -97,6 +95,3 @@ class Calculator:
     
     def div(self, num1, num2):
         return num1 / num2
-    
-    def mod(self, num1, num2):
-        return num1 % num2
