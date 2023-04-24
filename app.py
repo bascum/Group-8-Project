@@ -7,7 +7,6 @@ app = Flask(__name__)
 app.secret_key = "my_secretKey"
 calculator = Calculator()
 
-#testing commit
 
 typed = ""
 wholeOp = ""
@@ -15,8 +14,8 @@ wholeOp = ""
 @app.route("/", methods=['GET', 'POST'])
 def homePage():
    
-   global typed #double var
-   global wholeOp #double var
+   global typed
+   global wholeOp
    
    if request.method == "POST":
       # Get the button that was clicked
