@@ -34,6 +34,11 @@ def homePage():
          elif button == ".":
             if typed in "123456789":
                typed += "."
+            elif "." in typed:
+               pass
+            else:
+               typed += "0."
+            
                
          elif button == "0":
             if typed == "":
