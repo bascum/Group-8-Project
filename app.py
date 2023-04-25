@@ -1,5 +1,5 @@
 from distutils.file_util import write_file
-from flask import Flask, render_template, request, session
+from flask import Flask, render_template, request
 from calculator import Calculator
 
 
